@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  janus: # O el servidor WebRTC que estés usando
+    image: jitsi/web:latest # Asegúrate de que esta imagen corresponde a tu servidor WebRTC deseado
+    restart: unless-stopped
+    ports:
+      - "8080:8080" # Puerto de la API REST
+      - "8188:8188" # Puerto predeterminado de WebSockets
+    volumes:
+      - ./config:/config # Asegúrate de tener una carpeta de configuración si es necesariodocker-compose logs -f web
+      
